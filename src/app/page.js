@@ -15,7 +15,8 @@ import {
   ChevronRight, 
   Clock,
   ShieldCheck,
-  Award
+  Award,
+  Mail
 } from 'lucide-react';
 
 // --- UTILIDADES Y COMPONENTES SIMULANDO SHADCN/UI ---
@@ -445,11 +446,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 text-teal-500 shrink-0" />
-                <span>Av. Pachacútec 1234, Villa María del Triunfo, Lima</span>
+                <span>Av. Central 555, Mz. M - Lt. 23 Gr. 3 Sec. 1 - Villa El Salvador, Lima</span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-teal-500 shrink-0" />
                 <span>+51 913 696 049</span>
+              </li>
+              <li className="flex items-center">
+                <Mail size={18} className="mr-2 text-teal-500 shrink-0" />
+                <span>Cevet.150725@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <Clock size={18} className="mr-2 text-teal-500 shrink-0" />
