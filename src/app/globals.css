@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #f8fafc;
+  --foreground: #0b1220;
+  --brand-primary: #0b3a8f;
+  --brand-ink: #05070b;
+  --brand-primary-50: #e8eef9;
+  --brand-primary-100: #d6e1f6;
+  --brand-primary-200: #b7c9ee;
+  --brand-primary-300: #88a8e1;
+  --brand-primary-400: #4f7fd0;
+  --brand-primary-500: #245ab5;
+  --brand-primary-600: #0b3a8f;
+  --brand-primary-700: #082f75;
+  --brand-primary-800: #06245b;
+  --brand-primary-900: #04173d;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #05070b;
+    --foreground: #e2e8f0;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Remap existing teal utilities to the Cevet logo palette */
+.bg-teal-100 { background-color: var(--brand-primary-100) !important; }
+.bg-teal-600 { background-color: var(--brand-primary-600) !important; }
+.bg-teal-700 { background-color: var(--brand-primary-700) !important; }
+.bg-teal-800 { background-color: var(--brand-primary-800) !important; }
+.bg-teal-900 { background-color: var(--brand-primary-900) !important; }
+
+.text-teal-300 { color: var(--brand-primary-300) !important; }
+.text-teal-400 { color: var(--brand-primary-400) !important; }
+.text-teal-500 { color: var(--brand-primary-500) !important; }
+.text-teal-600 { color: var(--brand-primary-600) !important; }
+.text-teal-700 { color: var(--brand-primary-700) !important; }
+.text-teal-800 { color: var(--brand-primary-800) !important; }
+.text-teal-900 { color: var(--brand-primary-900) !important; }
+.text-teal-200\/80 { color: color-mix(in srgb, var(--brand-primary-200) 80%, transparent) !important; }
+
+.border-teal-200 { border-color: var(--brand-primary-200) !important; }
+.border-teal-500 { border-color: var(--brand-primary-500) !important; }
+
+.focus\:ring-teal-500:focus { --tw-ring-color: var(--brand-primary-500) !important; }
+
+.hover\:bg-teal-700:hover { background-color: var(--brand-primary-700) !important; }
+.hover\:bg-teal-600:hover { background-color: var(--brand-primary-600) !important; }
+.hover\:text-teal-400:hover { color: var(--brand-primary-400) !important; }
+.hover\:text-teal-600:hover { color: var(--brand-primary-600) !important; }
+.hover\:text-teal-700:hover { color: var(--brand-primary-700) !important; }
+.group:hover .group-hover\:bg-teal-600 { background-color: var(--brand-primary-600) !important; }

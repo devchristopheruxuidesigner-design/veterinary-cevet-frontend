@@ -16,7 +16,8 @@ import {
   Clock,
   ShieldCheck,
   Award,
-  Mail
+  Mail,
+  BotMessageSquare
 } from 'lucide-react';
 
 // --- UTILIDADES Y COMPONENTES SIMULANDO SHADCN/UI ---
@@ -89,6 +90,7 @@ const Navbar = () => {
             <a href="#inicio" className="text-sm font-medium text-slate-600 hover:text-teal-600">Inicio</a>
             <a href="#servicios" className="text-sm font-medium text-slate-600 hover:text-teal-600">Servicios</a>
             <a href="#nosotros" className="text-sm font-medium text-slate-600 hover:text-teal-600">Nosotros</a>
+            <a href="#staff" className="text-sm font-medium text-slate-600 hover:text-teal-600">Staff</a>
             <a href="#contacto" className="text-sm font-medium text-slate-600 hover:text-teal-600">Contacto</a>
             <Button onClick={() => document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' })}>
               Agendar Cita
@@ -108,6 +110,7 @@ const Navbar = () => {
           <a href="#inicio" className="block text-sm font-medium text-slate-600" onClick={() => setIsOpen(false)}>Inicio</a>
           <a href="#servicios" className="block text-sm font-medium text-slate-600" onClick={() => setIsOpen(false)}>Servicios</a>
           <a href="#nosotros" className="block text-sm font-medium text-slate-600" onClick={() => setIsOpen(false)}>Nosotros</a>
+          <a href="#staff" className="block text-sm font-medium text-slate-600" onClick={() => setIsOpen(false)}>Staff</a>
           <a href="#contacto" className="block text-sm font-medium text-slate-600" onClick={() => setIsOpen(false)}>Contacto</a>
           <Button className="w-full" onClick={() => { setIsOpen(false); document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' }); }}>
             Agendar Cita
@@ -144,20 +147,20 @@ const Hero = () => {
             </div>
           </div>
           <div className="relative">
-            {/* Contenedor simulando la imagen principal */}
-            <div className="aspect-[4/3] rounded-2xl bg-teal-200 overflow-hidden shadow-xl relative border-8 border-white flex items-center justify-center">
-               <div className="text-teal-800 font-medium text-lg text-center px-4">
-                 [Imagen de Perro feliz siendo examinado por un veterinario]
-               </div>
+            <div className="aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl relative border-8 border-white">
+              <img
+                src="/images/Dr. Anthony.png"
+                alt="Dr. Anthony"
+                className="h-full w-full object-cover"/>
             </div>
-            {/* Tarjeta flotante de estadística */}
+            {/* Tarjeta flotante de prueba de triaje con IA */}
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-slate-100 flex items-center gap-4 animate-bounce hover:animate-none">
-              <div className="bg-orange-100 p-3 rounded-full text-orange-600">
-                <Award size={24} />
+              <div className="bg-teal-100 p-3 rounded-full text-teal-600">
+                <BotMessageSquare size={24} />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900">+10 Años</p>
-                <p className="text-xs text-slate-500">De experiencia clínica</p>
+                <p className="text-sm font-bold text-slate-900">Prueba nuestro triaje con IA</p>
+                <p className="text-xs text-slate-500">Para emergencias</p>
               </div>
             </div>
           </div>
@@ -230,12 +233,12 @@ const About = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative">
-            {/* Contenedor simulando la imagen de nosotros */}
-            <div className="aspect-square md:aspect-[4/3] rounded-2xl bg-teal-100 overflow-hidden shadow-xl border-8 border-white flex items-center justify-center relative">
-               <div className="absolute inset-0 bg-teal-600/10 mix-blend-multiply"></div>
-               <div className="text-teal-800 font-medium text-lg text-center px-4 relative z-10">
-                 [Imagen del equipo de veterinarios de Cevet trabajando juntos]
-               </div>
+            <div className="aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border-8 border-white relative">
+              <img
+                src="/images/equipo-cevet.png"
+                alt="Equipo de Cevet"
+                className="h-full w-full object-cover"
+              />
             </div>
             {/* Elemento decorativo */}
             <div className="absolute -top-6 -left-6 bg-teal-600 text-white p-4 rounded-xl shadow-lg border border-teal-500 hidden md:block">
@@ -273,6 +276,59 @@ const About = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Staff = () => {
+  const staffList = [
+    { name: "Dr. Carlos Ramos", role: "Medicina Interna", shift: "Turno mañana" },
+    { name: "Dra. Valeria Salas", role: "Emergencias 24/7", shift: "Turno noche" },
+    { name: "Dr. Diego Flores", role: "Cirugía y Trauma", shift: "Turno tarde" },
+    { name: "Lic. Ana Torres", role: "Asistencia Clínica", shift: "Turno rotativo" },
+    { name: "Dr. Luis Mendoza", role: "Cardiología Veterinaria", shift: "Turno mañana" },
+    { name: "Dra. Camila Paredes", role: "Dermatología Veterinaria", shift: "Turno tarde" },
+    { name: "Dr. Jorge Huamán", role: "Diagnóstico por Imágenes", shift: "Turno noche" }
+  ];
+  const firstRowStaff = staffList.slice(0, 4);
+  const secondRowStaff = staffList.slice(4);
+
+  return (
+    <section id="staff" className="py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-4">Nuestro Staff</h2>
+          <p className="text-lg text-slate-600">
+            Profesionales comprometidos con la salud y bienestar de cada mascota, listos para atenderte con calidez y precisión.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {firstRowStaff.map((member) => (
+            <Card key={member.name} className="p-6 border-slate-100 hover:border-teal-200 hover:shadow-md transition-all">
+              <div className="h-16 w-16 rounded-full bg-teal-100 text-teal-700 font-bold text-xl flex items-center justify-center mb-4">
+                {member.name.split(' ').slice(0, 2).map((part) => part[0]).join('')}
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
+              <p className="text-sm text-teal-700 font-medium mt-1">{member.role}</p>
+              <p className="text-sm text-slate-500 mt-3">{member.shift}</p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:max-w-5xl lg:mx-auto">
+          {secondRowStaff.map((member) => (
+            <Card key={member.name} className="p-6 border-slate-100 hover:border-teal-200 hover:shadow-md transition-all">
+              <div className="h-16 w-16 rounded-full bg-teal-100 text-teal-700 font-bold text-xl flex items-center justify-center mb-4">
+                {member.name.split(' ').slice(0, 2).map((part) => part[0]).join('')}
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
+              <p className="text-sm text-teal-700 font-medium mt-1">{member.role}</p>
+              <p className="text-sm text-slate-500 mt-3">{member.shift}</p>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
@@ -411,6 +467,48 @@ const Appointment = () => {
   );
 };
 
+const TermsOfService = () => {
+  return (
+    <section id="terminos-servicios" className="py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-6">Términos de Servicios</h2>
+        <div className="space-y-4 text-slate-600 leading-relaxed">
+          <p>
+            Al usar los servicios de Cevet, aceptas proporcionar información veraz al momento de agendar citas y seguir las indicaciones médicas brindadas por nuestro equipo profesional.
+          </p>
+          <p>
+            Los horarios de atención y disponibilidad pueden variar según la demanda de emergencias. Cevet se reserva el derecho de reprogramar citas cuando sea necesario para priorizar casos urgentes.
+          </p>
+          <p>
+            El uso de este sitio web es únicamente informativo y de apoyo para la reserva de servicios veterinarios. Cualquier procedimiento clínico estará sujeto a evaluación médica previa.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Privacy = () => {
+  return (
+    <section id="privacidad" className="py-20 bg-slate-50">
+      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-6">Privacidad</h2>
+        <div className="space-y-4 text-slate-600 leading-relaxed">
+          <p>
+            En Cevet protegemos los datos personales que compartes en formularios, incluyendo nombre, teléfono e información de tu mascota, y los usamos solo para la gestión de citas y atención veterinaria.
+          </p>
+          <p>
+            No comercializamos tu información con terceros. Solo compartimos datos cuando sea estrictamente necesario para cumplir obligaciones legales o administrativas relacionadas con nuestros servicios.
+          </p>
+          <p>
+            Puedes solicitar la actualización o eliminación de tus datos de contacto escribiéndonos por nuestros canales oficiales y atenderemos tu solicitud en el menor tiempo posible.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => {
   return (
     <footer id="contacto" className="bg-slate-950 text-slate-300 pt-16 pb-8">
@@ -436,6 +534,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="#inicio" className="hover:text-teal-400 transition-colors">Inicio</a></li>
               <li><a href="#servicios" className="hover:text-teal-400 transition-colors">Nuestros Servicios</a></li>
+              <li><a href="#staff" className="hover:text-teal-400 transition-colors">Nuestro Staff</a></li>
               <li><a href="#agendar" className="hover:text-teal-400 transition-colors">Agendar Cita</a></li>
             </ul>
           </div>
@@ -459,7 +558,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <Clock size={18} className="mr-2 text-teal-500 shrink-0" />
                 <span>
-                  Lun - Sáb: 8:00 AM - 8:00 PM <br/>
+                  Lun - Dom: 9:00 AM - 9:00 PM <br/>
                   Emergencias 24/7
                 </span>
               </li>
@@ -468,10 +567,13 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Centro de emergencia veterinaria Cevet. Todos los derechos reservados.</p>
+          <div className="text-center md:text-left">
+            <p>© {new Date().getFullYear()} Centro de emergencia veterinaria Cevet. Todos los derechos reservados.</p>
+            <p className="mt-1">Designed By Christopher Maldonado</p>
+          </div>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-slate-300">Términos de Servicio</a>
-            <a href="#" className="hover:text-slate-300">Privacidad</a>
+            <a href="#terminos-servicios" className="hover:text-slate-300">Términos de Servicios</a>
+            <a href="#privacidad" className="hover:text-slate-300">Privacidad</a>
           </div>
         </div>
       </div>
@@ -487,7 +589,10 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
+        <Staff />
         <Appointment />
+        <TermsOfService />
+        <Privacy />
       </main>
       <Footer />
     </div>
