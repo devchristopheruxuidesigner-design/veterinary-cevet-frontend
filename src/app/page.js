@@ -286,11 +286,6 @@ const Staff = () => {
   const staffList = [
     { name: "Dr. Carlos Ramos", role: "Medicina Interna", shift: "Turno mañana" },
     { name: "Dra. Valeria Salas", role: "Emergencias 24/7", shift: "Turno noche" },
-    { name: "Dr. Diego Flores", role: "Cirugía y Trauma", shift: "Turno tarde" },
-    { name: "Lic. Ana Torres", role: "Asistencia Clínica", shift: "Turno rotativo" },
-    { name: "Dr. Luis Mendoza", role: "Cardiología Veterinaria", shift: "Turno mañana" },
-    { name: "Dra. Camila Paredes", role: "Dermatología Veterinaria", shift: "Turno tarde" },
-    { name: "Dr. Jorge Huamán", role: "Diagnóstico por Imágenes", shift: "Turno noche" }
   ];
   const firstRowStaff = staffList.slice(0, 4);
   const secondRowStaff = staffList.slice(4);
