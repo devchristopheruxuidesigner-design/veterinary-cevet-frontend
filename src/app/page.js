@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { 
   Stethoscope, 
   Scissors, 
@@ -19,6 +20,7 @@ import {
   Mail,
   BotMessageSquare
 } from 'lucide-react';
+import { staffList } from '../data/staff';
 
 // --- UTILIDADES Y COMPONENTES SIMULANDO SHADCN/UI ---
 
@@ -283,20 +285,6 @@ const About = () => {
 };
 
 const Staff = () => {
-  const staffList = [
-    {
-      name: "Dr. Roger Anthony Rojas Chuquicahuana",
-      role: "Medicina Interna",
-      shift: "Turno mañana",
-      image: "/images/Dr. Roger Anthony Rojas Chuquicahuana.svg"
-    },
-    {
-      name: "Dr. Gerson Pierre Condori Cabezas",
-      role: "Emergencias 24/7",
-      shift: "Turno noche",
-      image: "/images/Dr. Gerson Pierre Condori Cabezas.svg"
-    },
-  ];
   const firstRowStaff = staffList.slice(0, 4);
   const secondRowStaff = staffList.slice(4);
 
@@ -327,6 +315,12 @@ const Staff = () => {
               <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
               <p className="text-sm text-teal-700 font-medium mt-1">{member.role}</p>
               <p className="text-sm text-slate-500 mt-3">{member.shift}</p>
+              <Link
+                href={`/staff/${member.slug}`}
+                className="mt-4 inline-flex items-center justify-center rounded-md bg-teal-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-700"
+              >
+                Ver biografía
+              </Link>
             </Card>
           ))}
         </div>
@@ -348,6 +342,12 @@ const Staff = () => {
               <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
               <p className="text-sm text-teal-700 font-medium mt-1">{member.role}</p>
               <p className="text-sm text-slate-500 mt-3">{member.shift}</p>
+              <Link
+                href={`/staff/${member.slug}`}
+                className="mt-4 inline-flex items-center justify-center rounded-md bg-teal-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-700"
+              >
+                Ver biografía
+              </Link>
             </Card>
           ))}
         </div>
@@ -488,48 +488,6 @@ const Appointment = () => {
   );
 };
 
-const TermsOfService = () => {
-  return (
-    <section id="terminos-servicios" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-6">Términos de Servicios</h2>
-        <div className="space-y-4 text-slate-600 leading-relaxed">
-          <p>
-            Al usar los servicios de Cevet, aceptas proporcionar información veraz al momento de agendar citas y seguir las indicaciones médicas brindadas por nuestro equipo profesional.
-          </p>
-          <p>
-            Los horarios de atención y disponibilidad pueden variar según la demanda de emergencias. Cevet se reserva el derecho de reprogramar citas cuando sea necesario para priorizar casos urgentes.
-          </p>
-          <p>
-            El uso de este sitio web es únicamente informativo y de apoyo para la reserva de servicios veterinarios. Cualquier procedimiento clínico estará sujeto a evaluación médica previa.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Privacy = () => {
-  return (
-    <section id="privacidad" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-6">Privacidad</h2>
-        <div className="space-y-4 text-slate-600 leading-relaxed">
-          <p>
-            En Cevet protegemos los datos personales que compartes en formularios, incluyendo nombre, teléfono e información de tu mascota, y los usamos solo para la gestión de citas y atención veterinaria.
-          </p>
-          <p>
-            No comercializamos tu información con terceros. Solo compartimos datos cuando sea estrictamente necesario para cumplir obligaciones legales o administrativas relacionadas con nuestros servicios.
-          </p>
-          <p>
-            Puedes solicitar la actualización o eliminación de tus datos de contacto escribiéndonos por nuestros canales oficiales y atenderemos tu solicitud en el menor tiempo posible.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Footer = () => {
   return (
     <footer id="contacto" className="bg-slate-950 text-slate-300 pt-16 pb-8">
@@ -593,8 +551,8 @@ const Footer = () => {
             <p className="mt-1">Designed By Christopher Maldonado</p>
           </div>
           <div className="flex gap-4">
-            <a href="#terminos-servicios" className="hover:text-slate-300">Términos de Servicios</a>
-            <a href="#privacidad" className="hover:text-slate-300">Privacidad</a>
+            <a href="/terminos-servicios" className="hover:text-slate-300">Términos de Servicios</a>
+            <a href="/privacidad" className="hover:text-slate-300">Privacidad</a>
           </div>
         </div>
       </div>
@@ -612,8 +570,6 @@ export default function Home() {
         <About />
         <Staff />
         <Appointment />
-        <TermsOfService />
-        <Privacy />
       </main>
       <Footer />
     </div>
