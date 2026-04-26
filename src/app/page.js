@@ -284,8 +284,18 @@ const About = () => {
 
 const Staff = () => {
   const staffList = [
-    { name: "Dr. Carlos Ramos", role: "Medicina Interna", shift: "Turno mañana" },
-    { name: "Dra. Valeria Salas", role: "Emergencias 24/7", shift: "Turno noche" },
+    {
+      name: "Dr. Roger Anthony Rojas Chuquicahuana",
+      role: "Medicina Interna",
+      shift: "Turno mañana",
+      image: "/images/Dr. Roger Anthony Rojas Chuquicahuana.svg"
+    },
+    {
+      name: "Dr. Gerson Pierre Condori Cabezas",
+      role: "Emergencias 24/7",
+      shift: "Turno noche",
+      image: "/images/Dr. Gerson Pierre Condori Cabezas.svg"
+    },
   ];
   const firstRowStaff = staffList.slice(0, 4);
   const secondRowStaff = staffList.slice(4);
@@ -300,12 +310,20 @@ const Staff = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {firstRowStaff.map((member) => (
             <Card key={member.name} className="p-6 border-slate-100 hover:border-teal-200 hover:shadow-md transition-all">
-              <div className="h-16 w-16 rounded-full bg-teal-100 text-teal-700 font-bold text-xl flex items-center justify-center mb-4">
-                {member.name.split(' ').slice(0, 2).map((part) => part[0]).join('')}
-              </div>
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-64 rounded-xl object-cover object-top mb-4"
+                />
+              ) : (
+                <div className="w-full h-64 rounded-xl bg-teal-100 text-teal-700 font-bold text-4xl flex items-center justify-center mb-4">
+                  {member.name.split(' ').slice(0, 2).map((part) => part[0]).join('')}
+                </div>
+              )}
               <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
               <p className="text-sm text-teal-700 font-medium mt-1">{member.role}</p>
               <p className="text-sm text-slate-500 mt-3">{member.shift}</p>
@@ -316,9 +334,17 @@ const Staff = () => {
         <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:max-w-5xl lg:mx-auto">
           {secondRowStaff.map((member) => (
             <Card key={member.name} className="p-6 border-slate-100 hover:border-teal-200 hover:shadow-md transition-all">
-              <div className="h-16 w-16 rounded-full bg-teal-100 text-teal-700 font-bold text-xl flex items-center justify-center mb-4">
-                {member.name.split(' ').slice(0, 2).map((part) => part[0]).join('')}
-              </div>
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-64 rounded-xl object-cover object-top mb-4"
+                />
+              ) : (
+                <div className="w-full h-64 rounded-xl bg-teal-100 text-teal-700 font-bold text-4xl flex items-center justify-center mb-4">
+                  {member.name.split(' ').slice(0, 2).map((part) => part[0]).join('')}
+                </div>
+              )}
               <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
               <p className="text-sm text-teal-700 font-medium mt-1">{member.role}</p>
               <p className="text-sm text-slate-500 mt-3">{member.shift}</p>
