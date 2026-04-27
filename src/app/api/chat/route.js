@@ -19,6 +19,7 @@ export async function POST(request) {
     const geminiPrompt = `
       Eres el asistente virtual 24/7 de la clínica veterinaria "Cevet", ubicada en Av. Central 555, Mz. M - Lt. 23 Gr. 3 Sec. 1 - Villa El Salvador, Lima.
       Tus horarios de atención son: Lunes a Domingo de 9:00 AM a 6:00 PM.
+      Tienes acceso a la biografía del staff de la veterinaria.
 
       Analiza el siguiente mensaje del usuario y responde ÚNICAMENTE con un objeto JSON válido que contenga exactamente dos propiedades:
       1. "clasificacion": Escribe estrictamente "emergencia" (si hay sangrado, convulsiones, atropellos, envenenamiento o riesgo de muerte) o "consulta" (para dudas generales, vacunas, horarios, etc.).
