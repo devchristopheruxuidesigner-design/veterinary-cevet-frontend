@@ -3,6 +3,39 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { staffList } from "../../../data/staff";
 
+function isStructuredBiography(bio) {
+  return (
+    bio !== null &&
+    typeof bio === "object" &&
+    !Array.isArray(bio) &&
+    ("intro" in bio || "bullets" in bio || "closing" in bio)
+  );
+}
+
+function StaffBiographyBody({ biography }) {
+  if (!isStructuredBiography(biography)) {
+    return (
+      <p className="mt-3 leading-relaxed text-slate-700">{biography}</p>
+    );
+  }
+
+  const { intro, bullets = [], closing } = biography;
+
+  return (
+    <div className="mt-3 space-y-5 text-slate-700">
+      {intro ? <p className="leading-relaxed">{intro}</p> : null}
+      {bullets.length > 0 ? (
+        <ul className="list-outside list-disc space-y-4 pl-5 font-sans leading-relaxed marker:text-slate-900">
+          {bullets.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      ) : null}
+      {closing ? <p className="leading-relaxed">{closing}</p> : null}
+    </div>
+  );
+}
+
 export function generateStaticParams() {
   return staffList.map((member) => ({
     slug: member.slug,
@@ -55,7 +88,7 @@ export default async function StaffBiographyPage({ params }) {
 
               <section className="mt-6">
                 <h2 className="text-lg font-semibold text-slate-900">Biografía</h2>
-                <p className="mt-3 leading-relaxed text-slate-700">{member.biography}</p>
+                <StaffBiographyBody biography={member.biography} />
               </section>
             </div>
           </div>
