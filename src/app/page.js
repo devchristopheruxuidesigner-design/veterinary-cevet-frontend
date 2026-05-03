@@ -124,6 +124,8 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const emergencyWhatsAppUrl = "https://wa.me/51913696049?text=Hola%2C%20tengo%20una%20emergencia%20con%20mi%20mascota%20y%20necesito%20ayuda%20inmediata.";
+
   return (
     <section id="inicio" className="relative bg-slate-50 pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -143,7 +145,13 @@ const Hero = () => {
               <Button size="lg" onClick={() => document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' })}>
                 Agendar Consulta <ChevronRight size={18} className="ml-2" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => {
+                  window.location.href = emergencyWhatsAppUrl;
+                }}
+              >
                 <Phone size={18} className="mr-2" /> Llamar por Emergencia
               </Button>
             </div>
