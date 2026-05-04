@@ -1,22 +1,20 @@
 export const staffList = [
   {
     slug: "roger-anthony-rojas-chuquicahuana",
-    name: "Dr. Roger Anthony Rojas Chuquicahuana",
+    name: "Dr. Roger Antony Rojas Chuquicahuana",
     role: "Emergencias y cardiología 24/7",
     shift: "Cardiólogo",
     image: "/images/Dr. Roger Anthony Rojas Chuquicahuana.svg",
     biography: {
-      intro:
-        "Fundador de la clínica veterinaria Cevet, con una profunda vocación por la salud y el bienestar de los animales. Apasionado por la medicina de alta complejidad, ha centrado su carrera en el manejo de emergencias, cuidados críticos y medicina interna, buscando siempre ofrecer a sus pacientes la atención más actualizada y efectiva posible. Su formación continua lo ha llevado a especializarse en áreas clave de la veterinaria moderna.",
       bullets: [
         "Curso Internacional de Emergencias y Cuidados Críticos en VetSchool.",
         "Diplomado de emergencias veterinarias en la plataforma virtual veterinarios en web avalado por la universidad de Salta - Argentina.",
         "Diplomado de cardiología veterinaria en caninos y felinos- capacitación veterinaria",
         "Curso Internacional de Medicina Felina en VetSchool.",
         "Curso de capacitación de neumologia en instituto de capacitación veterinaria de Córdoba - Argentina. Avalado por el colegio médico veterinario de Córdoba.",
+        "Diplomado especializado internacional de ecocardiografía veterinaria en animales menores (Nivel básico - Intermedio) - 2024.",
+        "Diplomado de electrocardiografia avanzada en pequeños animales De septiembre 2024 abril 2025.",
       ],
-      closing:
-        "Esta combinación de conocimientos le permite abordar con solvencia y confianza casos complejos: desde urgencias vitales hasta el diagnóstico y seguimiento de enfermedades cardíacas, respiratorias y felinas, utilizando herramientas de imagen como la ultrasonografía para lograr diagnósticos más precisos y tratamientos más acertados. Para el Dr. Anthony, cada mascota es un miembro más de la familia. Su compromiso es brindar una atención médica de excelencia con cercanía humana, acompañando a los dueños en cada paso del proceso con claridad, empatía y tranquilidad.",
     },
   },
   {
