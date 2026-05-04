@@ -158,17 +158,13 @@ const Hero = () => {
           </div>
           <div className="relative">
             <div className="aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl relative border-8 border-white bg-slate-900">
-              <video
-                className="h-full w-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                aria-label="Presentación CeVet"
-              >
-                <source src="/Videos/video-hero.mp4" type="video/mp4" />
-              </video>
+              <img
+                className="h-full w-full object-cover -scale-x-100"
+                src={`/images/${encodeURIComponent("Dr. - Gerson - Operando.jpg")}`}
+                alt="Dr. Gerson operando en cirugía veterinaria en CeVet"
+                loading="eager"
+                fetchPriority="high"
+              />
             </div>
             {/* Tarjeta flotante de prueba de triaje con IA */}
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-slate-100 flex items-center gap-4 animate-bounce hover:animate-none">
