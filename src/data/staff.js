@@ -20,8 +20,8 @@ export const staffList = [
   {
     slug: "gerson-pierre-condori-cabezas",
     name: "Dr. Gerson Pierre Condori Cabezas",
-    role: "Emergencias y cardiología 24/7",
-    shift: "Medicina humana",
+    role: " Médico cirujano de trauma y emergencias",
+    shift: "Cirujano",
     image: "/images/Dr. Gerson Pierre Condori Cabezas.svg",
     biography: {
       intro:
